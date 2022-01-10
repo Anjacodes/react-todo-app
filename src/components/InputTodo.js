@@ -1,35 +1,38 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 class InputTodo extends Component {
-  state = {
-    title: ""
+  state = { // eslint-disable-line
+    title: '',
   };
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-  handleSubmit = e => {
+
+  onChange = (e) => { this.setState({ [e.target.name]: e.target.value }); };
+
+  handleSubmit = (e) => {
     e.preventDefault();
-    if(this.state.title.trim()) {
-      this.props.addTodoProps(this.state.title);
+    if (this.state.title.trim()) { //eslint-disable-line
+      this.props.addTodoProps(this.state.title); //eslint-disable-line
       this.setState({
-        title: ""
+        title: '',
       });
     } else {
-      alert("Please write task")
+      alert('Please write task');
     }
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="form-container">
         <input
-        name="title" type="text"
-        className="input-text"
-        placeholder="Add Todo..." value={this.state.title} onChange={this.onChange}/>
-        <button className="input-submit">Submit</button>
+          name="title"
+          type="text"
+          className="input-text"
+          placeholder="Add Todo..."
+          value={this.state.title} // eslint-disable-line
+          onChange={this.onChange}
+        />
+        <button type="submit" className="input-submit">Submit</button>
       </form>
-    )
+    );
   }
 }
-export default InputTodo
+export default InputTodo;
